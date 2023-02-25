@@ -25,18 +25,22 @@ fetch(apiURL)
   })
   .then(function (data) {
     console.log(data.items);
-    var testArr = data.items;
-    for (var i = 0; i < testArr.length; i++) {
+    var searchArr = data.items;
+    for (var i = 0; i < searchArr.length; i++) {
         
-        var titleResults = testArr[i].volumeInfo.title;
+        var titleResults = searchArr[i].volumeInfo.title;
         console.log("volumeinfo.title"+titleResults)
         $("#titleResults").append("<a>" + titleResults + "</a>")
         
 
-        var authorResults = testArr[i].volumeInfo.authors
+        var authorResults = searchArr[i].volumeInfo.authors
         console.log("volumeinfo.authors"+authorResults);
         $("#authorResults").append("<li>" + titleResults + "</li>")
 
       console.log("volumeinfo.description"+testArr[i].volumeInfo.description);
     }
   });
+
+
+  ////Book Results
+  var eTag = testArr
