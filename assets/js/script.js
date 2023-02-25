@@ -30,17 +30,18 @@ fetch(apiURL)
         
         var titleResults = searchArr[i].volumeInfo.title;
         console.log("volumeinfo.title"+titleResults)
-        $("#titleResults").append("<a>" + titleResults + "</a>")
+        $("#titleResults").append("<a href='' >" + titleResults + "</a>")
         
 
         var authorResults = searchArr[i].volumeInfo.authors
         console.log("volumeinfo.authors"+authorResults);
         $("#authorResults").append("<li>" + titleResults + "</li>")
 
-      console.log("volumeinfo.description"+testArr[i].volumeInfo.description);
+      console.log("volumeinfo.description"+searchArr[i].volumeInfo.description);
     }
   });
 
 
   ////Book Results
-  var eTag = testArr
+
+//   var eTag = searchArr[j].etag
