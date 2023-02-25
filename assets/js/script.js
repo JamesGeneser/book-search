@@ -27,8 +27,16 @@ fetch(apiURL)
     console.log(data.items);
     var testArr = data.items;
     for (var i = 0; i < testArr.length; i++) {
-      console.log("volumeinfo.authors"+testArr[i].volumeInfo.authors);
-      console.log("volumeinfo.title"+testArr[i].volumeInfo.title);
+        
+        var titleResults = testArr[i].volumeInfo.title;
+        console.log("volumeinfo.title"+titleResults)
+        $("#titleResults").append("<li>" + titleResults + "</li>")
+        
+
+        var authorResults = testArr[i].volumeInfo.authors
+        console.log("volumeinfo.authors"+authorResults);
+        $("#authorResults").append("<li>" + titleResults + "</li>")
+
       console.log("volumeinfo.description"+testArr[i].volumeInfo.description);
     }
   });
