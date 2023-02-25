@@ -1,0 +1,36 @@
+body {
+    color:#312229;
+    background-color: #B18653;
+  }
+  section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+  }
+
+  header {
+    text-align: center;
+    font-size: xx-large;
+    font-style: italic;
+  }
+  
+  .card {
+    border: solid 2px #54101D;
+    background: #47596F ;
+    width: 230px;
+    height: 350px;
+    text-align: center;
+  }
+  
+  h1 {
+    background: #D5C5AE;
+    width: 100px;
+    margin-left: 60px;
+  }
+
+  h2 {
+    background: #D5C5AE;
+    width: 100px;
+    margin-left: 60px; 
+  }
