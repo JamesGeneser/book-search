@@ -30,7 +30,7 @@ fetch(apiURL)
         
         var titleResults = testArr[i].volumeInfo.title;
         console.log("volumeinfo.title"+titleResults)
-        $("#titleResults").append("<li>" + titleResults + "</li>")
+        $("#titleResults").append("<a>" + titleResults + "</a>")
         
 
         var authorResults = testArr[i].volumeInfo.authors
