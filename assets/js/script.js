@@ -1,4 +1,4 @@
-var apiURL = "https://www.googleapis.com/books/v1/volumes?q=mobydick+inauthors:melville&key=AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4"
+// var apiURL = "https://www.googleapis.com/books/v1/volumes?q=mobydick+inauthors:melville&key=AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4"
 
 
 
@@ -11,9 +11,13 @@ var apiURL = "https://www.googleapis.com/books/v1/volumes?q=mobydick+inauthors:m
 // .then(function(data){
 //     console.log(data)
 // })
-
+var searchInput = "universeinanutshell"
+var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4"
 var apiURL =
-  "https://www.googleapis.com/books/v1/volumes?q=universeinanutshell&key=YOURAPIKEY";
+  "https://www.googleapis.com/books/v1/volumes?q="+
+  searchInput +
+  "&key=" +
+  apiKey;
 
 fetch(apiURL)
   .then(function (response) {
@@ -23,8 +27,8 @@ fetch(apiURL)
     console.log(data.items);
     var testArr = data.items;
     for (var i = 0; i < testArr.length; i++) {
-      console.log(testArr[i].volumeInfo.authors);
-      console.log(testArr[i].volumeInfo.title);
-      console.log(testArr[i].volumeInfo.description);
+      console.log("volumeinfo.authors"+testArr[i].volumeInfo.authors);
+      console.log("volumeinfo.title"+testArr[i].volumeInfo.title);
+      console.log("volumeinfo.description"+testArr[i].volumeInfo.description);
     }
   });
