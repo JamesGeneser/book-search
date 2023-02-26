@@ -1,3 +1,8 @@
+var userInput = $("#textarea1");
+var searchBtn = $("#search");
+var searchInput = "";
+var searchHistory = [];
+
 $(document).ready(function () {
   var searchInput = "theBeatles";
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
@@ -64,6 +69,14 @@ $(document).ready(function () {
     .then(function (data) {
       console.log(data);
     });
+
+  searchBtn.on("submit", function (event) {
+    event.preventDefault();
+    alert("this is working");
+    // var userSearchInput = userInput.val();
+    // console.log(userSearchInput);
+    // getApiSearchResults(userSearchInput);
+  });
   // function getSpecificVolumeApi(event){
   //         // event.preventDefault()
   //         var idNum = event.target.id
