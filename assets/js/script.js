@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
 
-var searchInput = "universeinanutshell"
+var searchInput = "infinitejest"
 var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4"
 var apiURL =
   "https://www.googleapis.com/books/v1/volumes?q="+
@@ -25,15 +25,15 @@ function getApiSearchResults(){
         titleId = searchArr[i].id
         console.log("volumeinfo.title"+titleResults)
         console.log(titleId)
-        $("#titleResults").append("<a href='' class='links' id="+titleId+" >" + titleResults + "</a>"+ "<br>").click(getIdApi)
+        $("#titleResults").append("<a href='bookpage.html' class='links' id="+titleId+" >" + titleResults + "</a>"+ "<br>").click(getSpecificVolumeApi)
         }
     }
     )
 }
 getApiSearchResults()  
 
-function getIdApi(event){
-        event.preventDefault()
+function getSpecificVolumeApi(event){
+        // event.preventDefault()
         var idNum = event.target.id
         console.log(idNum)
 
@@ -49,22 +49,29 @@ function getIdApi(event){
           
         })
         .then(function (data) {
-          console.log(data);
-          var bookTitle
-          var bookSubTitle
-          var bookAuthor
-          var bookPublishDate
-          var bookPublisher
-          var bookPageCount
+        console.log(data);
+        var bookTitle = data.volumeInfo.title
+        console.log(bookTitle)
+        var bookAuthorArr = data.volumeInfo.authors
+        console.log(bookAuthorArr)
+        var bookMainAuthor = bookAuthorArr[0]
+        console.log(bookMainAuthor)
+        var bookPublishDate = data.volumeInfo.publishedDate
+        console.log(bookPublishDate)
+        var bookPublisher = data.volumeInfo.publisher
+        console.log(bookPublisher)
+        var bookDescription = data.volumeInfo.description
+        console.log(bookDescription)
 
-})
-}
+
+    })
+    }
 
         // var authorResults = searchArr[i].volumeInfo.authors
         // // console.log("volumeinfo.authors"+authorResults);
         // $("#authorResults").append("<li>" + authorResults + "</li>")
 
-    }
+}
 )
 
 
