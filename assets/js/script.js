@@ -1,5 +1,5 @@
 var userInput = $("#textarea1");
-var searchBtn = $("#search");
+var searchBtn = $("#searchbutton");
 var searchInput = "";
 var searchHistory = [];
 
@@ -35,27 +35,11 @@ $(document).ready(function () {
   }
   getApiSearchResults();
 
-  // function getWikiMediaApi(){
-  //     // var wikiQuery = "komodo"
-  //     var wikiEndPointURL = "http://en.wikipedia.org/w/api.php"
-  //     var wikiParameters = "?action=query"
-  //     +"&list=search"
-  //     +"&srsearch=Craig%20Noone"
+  function setUserSearch() {} //function I think we will use to set the values of the users search in local storage as a JSON object.  I have the array for this already declared in global as searchHistory.  I believe we will want to pass this function an argument equal to the var we declare in the event listener at bottom of page.
 
-  //     +"&origin=*"
-  //     +"&format=json"
-  //     var wikiApiLink = wikiEndPointURL + wikiParameters
+  function renderUserSearch() {} //function I think we will use to retrieve user inputs from local storage parsed back into js.  This will not be passed an argument BUT it will call our createButton function.
 
-  //     fetch(wikiApiLink)
-  //     .then(function(response) {
-  //         console.log(response.status)
-  //         return response ;
-  //     })
-  //         .then(function (data){
-  //             console.log(data)
-  //         })
-  // }
-  // getWikiMediaApi()
+  function createButton() {} //This function will dynamically create a button upon a user searching.  We can apply a class to this button so that they are all uniform in size and appearance.  Need to create an id in the dom to reference where we want all these buttons appended.
 
   var wikiEndPoint =
     "https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=";
@@ -69,78 +53,13 @@ $(document).ready(function () {
     .then(function (data) {
       console.log(data);
     });
+});
 
-  searchBtn.on("submit", function (event) {
-    event.preventDefault();
-    alert("this is working");
-    // var userSearchInput = userInput.val();
-    // console.log(userSearchInput);
-    // getApiSearchResults(userSearchInput);
-  });
-  // function getSpecificVolumeApi(event){
-  //         // event.preventDefault()
-  //         var idNum = event.target.id
-  //         console.log(idNum)
+searchBtn.on("click", function (event) {
+  event.preventDefault();
+  var userSearchInput = userInput.val();
+  //What sort of function do we need to create in order to pass our userSearchInput into?
 
-  //         var titleSearchApiUrl = "https://www.googleapis.com/books/v1/volumes/"+
-  //         idNum +
-  //         "?key="+
-  //         apiKey;
-
-  //         fetch(titleSearchApiUrl)
-  //         .then(function (response) {
-  //             console.log(response.status)
-  //           return response.json();
-
-  //         })
-  //         .then(function (data) {
-  //         console.log(data);
-  //         var bookTitle = data.volumeInfo.title
-  //         console.log(bookTitle)
-  //         var bookAuthorArr = data.volumeInfo.authors
-  //         console.log(bookAuthorArr)
-  //         var bookMainAuthor = bookAuthorArr[0]
-  //         console.log(bookMainAuthor)
-  //         var bookPublishDate = data.volumeInfo.publishedDate
-  //         console.log(bookPublishDate)
-  //         var bookPublisher = data.volumeInfo.publisher
-  //         console.log(bookPublisher)
-  //         var bookDescription = data.volumeInfo.description
-  //         console.log(bookDescription)
-
-  //     })
-  //     }
-
-  // var authorResults = searchArr[i].volumeInfo.authors
-  // // console.log("volumeinfo.authors"+authorResults);
-
-  //   function showBookData(event){
-  //     event.preventDefault()
-  //     var idNum =
-  //     console.log(idNum)
-  //}
-
-  // selectedTitle = event.target.textContent
-  // var idNum = selectedTitle.attr("id")
-  // console.log(idNum)
-  //Specific book search
-  // var bookApiURL = "https://www.googleapis.com/books/v1/volumes/"+
-  //  +
-
-  // "&key=" +
-  // apiKey;
-  // fetch(bookApiURL)
-  //  .then(function (response) {
-  //     return response.json();
-  //  })
-  // .then(function (data) {
-  //     console.log(data.items);
-
-  // })
-
-  ////Book Results
-
-  //   var eTag = searchArr[j].etag
-  // var bookTitle = array
-  // var authorName =
+  // getApiSearchResults(userSearchInput);
+  // console.log(userSearchInput);
 });
