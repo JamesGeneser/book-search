@@ -4,7 +4,7 @@ var searchInput = "";
 var searchHistory = [];
 
 $(document).ready(function () {
-  var searchInput = "theBeatles";
+  var searchInput = "penguins";
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
   var apiURL =
     "https://www.googleapis.com/books/v1/volumes?q=" +
@@ -12,14 +12,6 @@ $(document).ready(function () {
     "&key=" +
     apiKey;
 
-
-var searchInput = "theBeatles"
-var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4"
-var apiURL =
-  "https://www.googleapis.com/books/v1/volumes?q="+
-  searchInput +
-  "&key=" +
-  apiKey;
 
 //GOOGLE BOOKS API; returns data on titles that match user search//
 function getGoogleBooksApiSearchResults(){
@@ -41,7 +33,6 @@ function getGoogleBooksApiSearchResults(){
 }
 getGoogleBooksApiSearchResults()  
 
-          console.log("volumeinfo.title" + titleResults);
 
 
 //WIKIPEDIA API; returns data on the subjects that match user search//
