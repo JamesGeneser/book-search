@@ -37,28 +37,42 @@ function getApiSearchResults(){
 getApiSearchResults()  
 
 
-function getWikiMediaApi(){
-    var wikiQuery = "komodo"
-    var wikiApiURL = "http://en.wikipedia.org/w/api.php"+
-    "?action=query"+
-    "&list=search"+
-    "&srsearch="+
-    "&origin=*"
-    wikiQuery+
-    "&format=json"
-    fetch(wikiApiURL)
-    .then(function(response) {
-        console.log(response.status)
-        return response ;
-    })
-        .then(function (data){
-            console.log(data)
-        })
-}
-getWikiMediaApi()
+// function getWikiMediaApi(){
+//     // var wikiQuery = "komodo"
+//     var wikiEndPointURL = "http://en.wikipedia.org/w/api.php"
+//     var wikiParameters = "?action=query"
+//     +"&list=search"
+//     +"&srsearch=Craig%20Noone"
+    
+//     +"&origin=*"
+//     +"&format=json"
+//     var wikiApiLink = wikiEndPointURL + wikiParameters
 
 
 
+    
+//     fetch(wikiApiLink)
+//     .then(function(response) {
+//         console.log(response.status)
+//         return response ;
+//     })
+//         .then(function (data){
+//             console.log(data)
+//         })
+// }
+// getWikiMediaApi()
+
+
+var wikiEndPoint = "https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search="
+var wikiQuery = "komodo"
+var wikiFetchUrl = wikiEndPoint+wikiQuery
+fetch(wikiFetchUrl)
+.then(function(response) {
+    console.log(response.status);
+    return response.json()
+})
+.then(function(data) {
+    console.log(data);
 }
 )
 // function getSpecificVolumeApi(event){
@@ -136,3 +150,4 @@ getWikiMediaApi()
 //   var eTag = searchArr[j].etag
 // var bookTitle = array 
 // var authorName =
+})
