@@ -10,7 +10,8 @@ var apiURL =
   "&key=" +
   apiKey;
 
-function getApiSearchResults(){
+//GOOGLE BOOKS API; returns data on titles that match user search//
+function getGoogleBooksApiSearchResults(){
     fetch(apiURL)
     .then(function (response) {
      return response.json();
@@ -19,124 +20,45 @@ function getApiSearchResults(){
 
         var searchArr = data.items;
         for (var i = 0; i < searchArr.length; i++) {
-        console.log(searchArr)
-        console.log(searchArr[i])
+       
         var titleResults = searchArr[i].volumeInfo.title;
-        
-        
-        console.log("volumeinfo.title"+titleResults)
-   
         $("#title-"+i).text(titleResults)
         
         var authorResults = searchArr[i].volumeInfo.authors;
-        console.log(authorResults)
         $("#author-"+i).text(authorResults)
     }
-    }
-    )
+    })
 }
-getApiSearchResults()  
+getGoogleBooksApiSearchResults()  
 
 
 
-
+//WIKIPEDIA API; returns data on the subjects that match user search//
 var wikiEndPoint = "https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search="
-var wikiQuery = "komodo"
-var wikiFetchUrl = wikiEndPoint+wikiQuery
+var wikiFetchUrl = wikiEndPoint+searchInput
+
+function getWikipediaApiSearchResults(){
 fetch(wikiFetchUrl)
-.then(function(response) {
-    console.log(response.status);
+    .then(function(response) {
+        console.log(response.status);
     return response.json()
-})
-.then(function(data) {
-    console.log(data);
+    })
+    .then(function(data) {
+        console.log(data);
     var wikiNamesArr = data[1]
     var wikiLinksArr = data[3]
 
     for(var i=0; i < wikiNamesArr.length; i++ ){
     wikiList = wikiNamesArr[i]  
-    console.log(wikiList)
+        console.log(wikiList)
     wikiHyperlinks = wikiLinksArr[i]
-    console.log(wikiHyperlinks)
+        console.log(wikiHyperlinks)
     
     
     $("#wikiLinks").append("<a href="+wikiHyperlinks+">"+ wikiList +"<a>");
     }
+    }
+    )
 }
-)
+getWikipediaApiSearchResults()
 })
-// function getSpecificVolumeApi(event){
-//         // event.preventDefault()
-//         var idNum = event.target.id
-//         console.log(idNum)
-
-//         var titleSearchApiUrl = "https://www.googleapis.com/books/v1/volumes/"+
-//         idNum +
-//         "?key="+
-//         apiKey;
-       
-//         fetch(titleSearchApiUrl)
-//         .then(function (response) {
-//             console.log(response.status)
-//           return response.json();
-          
-//         })
-//         .then(function (data) {
-//         console.log(data);
-//         var bookTitle = data.volumeInfo.title
-//         console.log(bookTitle)
-//         var bookAuthorArr = data.volumeInfo.authors
-//         console.log(bookAuthorArr)
-//         var bookMainAuthor = bookAuthorArr[0]
-//         console.log(bookMainAuthor)
-//         var bookPublishDate = data.volumeInfo.publishedDate
-//         console.log(bookPublishDate)
-//         var bookPublisher = data.volumeInfo.publisher
-//         console.log(bookPublisher)
-//         var bookDescription = data.volumeInfo.description
-//         console.log(bookDescription)
-
-
-//     })
-//     }
-
-        // var authorResults = searchArr[i].volumeInfo.authors
-        // // console.log("volumeinfo.authors"+authorResults);
-
-
-
-
-        
-
-
-
-//   function showBookData(event){
-//     event.preventDefault()
-//     var idNum = 
-//     console.log(idNum)
-//}
-
-    // selectedTitle = event.target.textContent
-    // var idNum = selectedTitle.attr("id")
-    // console.log(idNum)
-    //Specific book search 
-        // var bookApiURL = "https://www.googleapis.com/books/v1/volumes/"+
-        //  +
-       
-        // "&key=" +
-        // apiKey;
-        // fetch(bookApiURL)
-        //  .then(function (response) {
-        //     return response.json();
-        //  })
-        // .then(function (data) {
-        //     console.log(data.items);
-            
-        // })
-        
-  
-  ////Book Results
-
-//   var eTag = searchArr[j].etag
-// var bookTitle = array 
-// var authorName =
