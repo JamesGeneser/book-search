@@ -1,142 +1,41 @@
+var userInput = $("#textarea1");
+var searchBtn = $("#searchbutton");
+var searchInput = "";
+var searchHistory = [];
 
 $(document).ready(function () {
+  var searchInput = "theBeatles";
+  var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
+  var apiURL =
+    "https://www.googleapis.com/books/v1/volumes?q=" +
+    searchInput +
+    "&key=" +
+    apiKey;
 
-
-var searchInput = "theBeatles"
-var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4"
-var apiURL =
-  "https://www.googleapis.com/books/v1/volumes?q="+
-  searchInput +
-  "&key=" +
-  apiKey;
-
-function getApiSearchResults(){
+  function getApiSearchResults() {
     fetch(apiURL)
-    .then(function (response) {
-     return response.json();
-     })
-         .then(function (data) {
-
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
         var searchArr = data.items;
         for (var i = 0; i < searchArr.length; i++) {
-        console.log(searchArr)
-        console.log(searchArr[i])
-        var titleResults = searchArr[i].volumeInfo.title;
-        
-        
-        console.log("volumeinfo.title"+titleResults)
-   
-        $("#title-"+i).text(titleResults)
-        
-        var authorResults = searchArr[i].volumeInfo.authors;
-        console.log(authorResults)
-        $("#author-"+i).text(authorResults)
-    }
-    }
-    )
-}
-getApiSearchResults()  
 
 
+          console.log("volumeinfo.title" + titleResults);
 
 
-var wikiEndPoint = "https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search="
-var wikiQuery = "komodo"
-var wikiFetchUrl = wikiEndPoint+wikiQuery
-fetch(wikiFetchUrl)
-.then(function(response) {
-    console.log(response.status);
-    return response.json()
-})
-.then(function(data) {
-    console.log(data);
-    var wikiNamesArr = data[1]
-    var wikiLinksArr = data[3]
+          var authorResults = searchArr[i].volumeInfo.authors;
+          console.log(authorResults);
+          $("#author-" + i).text(authorResults);
+        }
+      });
+  }
+  getApiSearchResults();
 
-    for(var i=0; i < wikiNamesArr.length; i++ ){
-    wikiList = wikiNamesArr[i]  
-    console.log(wikiList)
-    wikiHyperlinks = wikiLinksArr[i]
-    console.log(wikiHyperlinks)
-    
-    
-    $("#wikiLinks").append("<a href="+wikiHyperlinks+">"+ wikiList +"<a>");
-    }
-}
-)
-})
-// function getSpecificVolumeApi(event){
-//         // event.preventDefault()
-//         var idNum = event.target.id
-//         console.log(idNum)
+  function setUserSearch() {} //function I think we will use to set the values of the users search in local storage as a JSON object.  I have the array for this already declared in global as searchHistory.  I believe we will want to pass this function an argument equal to the var we declare in the event listener at bottom of page.
 
-//         var titleSearchApiUrl = "https://www.googleapis.com/books/v1/volumes/"+
-//         idNum +
-//         "?key="+
-//         apiKey;
-       
-//         fetch(titleSearchApiUrl)
-//         .then(function (response) {
-//             console.log(response.status)
-//           return response.json();
-          
-//         })
-//         .then(function (data) {
-//         console.log(data);
-//         var bookTitle = data.volumeInfo.title
-//         console.log(bookTitle)
-//         var bookAuthorArr = data.volumeInfo.authors
-//         console.log(bookAuthorArr)
-//         var bookMainAuthor = bookAuthorArr[0]
-//         console.log(bookMainAuthor)
-//         var bookPublishDate = data.volumeInfo.publishedDate
-//         console.log(bookPublishDate)
-//         var bookPublisher = data.volumeInfo.publisher
-//         console.log(bookPublisher)
-//         var bookDescription = data.volumeInfo.description
-//         console.log(bookDescription)
+  function renderUserSearch() {} //function I think we will use to retrieve user inputs from local storage parsed back into js.  This will not be passed an argument BUT it will call our createButton function.
 
+  function createButton() {} //This function will dynamically create a button upon a user searching.  We can apply a class to this button so that they are all uniform in size and appearance.  Need to create an id in the dom to reference where we want all these buttons appended.
 
-//     })
-//     }
-
-        // var authorResults = searchArr[i].volumeInfo.authors
-        // // console.log("volumeinfo.authors"+authorResults);
-
-
-
-
-        
-
-
-
-//   function showBookData(event){
-//     event.preventDefault()
-//     var idNum = 
-//     console.log(idNum)
-//}
-
-    // selectedTitle = event.target.textContent
-    // var idNum = selectedTitle.attr("id")
-    // console.log(idNum)
-    //Specific book search 
-        // var bookApiURL = "https://www.googleapis.com/books/v1/volumes/"+
-        //  +
-       
-        // "&key=" +
-        // apiKey;
-        // fetch(bookApiURL)
-        //  .then(function (response) {
-        //     return response.json();
-        //  })
-        // .then(function (data) {
-        //     console.log(data.items);
-            
-        // })
-        
-  
-  ////Book Results
-
-//   var eTag = searchArr[j].etag
-// var bookTitle = array 
-// var authorName =
