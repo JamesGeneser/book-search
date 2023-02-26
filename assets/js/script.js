@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
 
-var searchInput = "infinitejest"
+var searchInput = "harrypotter"
 var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4"
 var apiURL =
   "https://www.googleapis.com/books/v1/volumes?q="+
@@ -16,15 +16,15 @@ function getApiSearchResults(){
      return response.json();
      })
          .then(function (data) {
-        console.log(data.items);
+
         var searchArr = data.items;
         for (var i = 0; i < searchArr.length; i++) {
-        
+        console.log(data.items)
         var titleResults = searchArr[i].volumeInfo.title;
         
         titleId = searchArr[i].id
         console.log("volumeinfo.title"+titleResults)
-        console.log(titleId)
+   
         $("#titleResults").append("<li href='bookpage.html' class='links' id="+titleId+" >" + titleResults + "</li>"+ "<br>")
         
         var authorResults = searchArr[i].volumeInfo.authors;
