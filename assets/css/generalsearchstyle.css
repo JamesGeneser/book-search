@@ -1,4 +1,8 @@
+html {
+  font-size: 62.5%;
+  font-family: "Roboto Mono", monospace;
+}
 #titles {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
