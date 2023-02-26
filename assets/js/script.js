@@ -19,7 +19,8 @@ function getApiSearchResults(){
 
         var searchArr = data.items;
         for (var i = 0; i < searchArr.length; i++) {
-        console.log(data.items)
+        console.log(searchArr)
+        console.log(searchArr[i])
         var titleResults = searchArr[i].volumeInfo.title;
         
         
@@ -37,30 +38,6 @@ function getApiSearchResults(){
 getApiSearchResults()  
 
 
-// function getWikiMediaApi(){
-//     // var wikiQuery = "komodo"
-//     var wikiEndPointURL = "http://en.wikipedia.org/w/api.php"
-//     var wikiParameters = "?action=query"
-//     +"&list=search"
-//     +"&srsearch=Craig%20Noone"
-    
-//     +"&origin=*"
-//     +"&format=json"
-//     var wikiApiLink = wikiEndPointURL + wikiParameters
-
-
-
-    
-//     fetch(wikiApiLink)
-//     .then(function(response) {
-//         console.log(response.status)
-//         return response ;
-//     })
-//         .then(function (data){
-//             console.log(data)
-//         })
-// }
-// getWikiMediaApi()
 
 
 var wikiEndPoint = "https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search="
@@ -73,8 +50,18 @@ fetch(wikiFetchUrl)
 })
 .then(function(data) {
     console.log(data);
+    var wikiArr = data[1]
+    
+    for(var i=0; i < wikiArr.length; i++ ){
+    wikiList = wikiArr[i]  
+    console.log(wikiList)       
+    
+    
+    $("#wikiLinks").append("<li>"+ wikiList +"</li>");
+    }
 }
 )
+})
 // function getSpecificVolumeApi(event){
 //         // event.preventDefault()
 //         var idNum = event.target.id
@@ -150,4 +137,3 @@ fetch(wikiFetchUrl)
 //   var eTag = searchArr[j].etag
 // var bookTitle = array 
 // var authorName =
-})
