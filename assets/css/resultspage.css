@@ -4,6 +4,7 @@ body {
 }
 
 header {
+  margin-bottom: 220px;
   text-align: center;
   font-size: xx-large;
   font-style: italic;
@@ -100,19 +101,5 @@ h2 {
   );
 }
 
-
-.info-card {
-  border: solid 2px #54101d;
-  background: #47596f;
-}
-
-
-.buttons {
-  background: #d5c5ae;
-}
-
-.btn:hover {
-  background: #e7e3dc;
-}
 
 
