@@ -50,14 +50,17 @@ fetch(wikiFetchUrl)
 })
 .then(function(data) {
     console.log(data);
-    var wikiArr = data[1]
+    var wikiNamesArr = data[1]
+    var wikiLinksArr = data[3]
+
+    for(var i=0; i < wikiNamesArr.length; i++ ){
+    wikiList = wikiNamesArr[i]  
+    console.log(wikiList)
+    wikiHyperlinks = wikiLinksArr[i]
+    console.log(wikiHyperlinks)
     
-    for(var i=0; i < wikiArr.length; i++ ){
-    wikiList = wikiArr[i]  
-    console.log(wikiList)       
     
-    
-    $("#wikiLinks").append("<li>"+ wikiList +"</li>");
+    $("#wikiLinks").append("<a href="+wikiHyperlinks+">"+ wikiList +"<a>");
     }
 }
 )
