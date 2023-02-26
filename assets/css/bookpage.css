@@ -1,3 +1,8 @@
+html {
+  font-size: 62.5%;
+  font-family: "Roboto Mono", monospace;
+}
+
 body {
   color: #312229;
   background-color: #b18653;
@@ -99,4 +104,10 @@ h2 {
     #e4e0ce 48px,
     transparent 50px
   );
+}
+.wikicard{
+  
+  width: 200px;
+  background-color: #54101d;
+  color: #d5c5ae;
 }
