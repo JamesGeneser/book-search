@@ -105,3 +105,9 @@ h2 {
     transparent 50px
   );
 }
+.wikicard{
+  
+  width: 200px;
+  background-color: #54101d;
+  color: #d5c5ae;
+}
