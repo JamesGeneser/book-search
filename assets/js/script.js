@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
 
-var searchInput = "harrypotter"
+var searchInput = "theBeatles"
 var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4"
 var apiURL =
   "https://www.googleapis.com/books/v1/volumes?q="+
@@ -22,14 +22,14 @@ function getApiSearchResults(){
         console.log(data.items)
         var titleResults = searchArr[i].volumeInfo.title;
         
-        titleId = searchArr[i].id
+        
         console.log("volumeinfo.title"+titleResults)
    
-        $("#titleResults").append("<li href='bookpage.html' class='links' id="+titleId+" >" + titleResults + "</li>"+ "<br>")
+        $("#title-"+i).text(titleResults)
         
         var authorResults = searchArr[i].volumeInfo.authors;
         console.log(authorResults)
-        $("#authorResults").append("<li>" + authorResults + "</li>"+"<br>")
+        $("#author-"+i).text(authorResults)
     }
     }
     )
