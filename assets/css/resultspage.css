@@ -1,0 +1,102 @@
+body {
+  color: #312229;
+  background-color: #b18653;
+}
+
+header {
+  margin-bottom: 220px;
+  text-align: center;
+  font-size: xx-large;
+  font-style: italic;
+  background: #d5c5ae;
+  border-radius: 10px;
+  border: #54101d solid 1px;
+  width: 25%;
+  margin-left: 35%;
+  box-shadow: #370a12 5px 5px 0px 0px;
+}
+section {
+  /*Putting contents into a row and spacing the contents*/
+  display: flex;
+  flex-direction: row;
+  margin-left: 110px;
+  justify-content: space-between;
+}
+h1 {
+  /*This code controls the title section on the book*/
+  background: #d5c5ae;
+  width: 120px;
+  margin-left: 60px;
+  border-radius: 10px;
+}
+
+h2 {
+  /*The author section of the book is styled here*/
+  background: #d5c5ae;
+  width: 120px;
+  margin-left: 60px;
+  border-radius: 10px;
+}
+
+*:before,
+*:after {
+  content: "";
+  position: absolute;
+}
+.card {
+  border: solid 2px #54101d;
+  /*Color of the front of the book and the size that the are*/
+  background: #47596f;
+  width: 220px;
+  height: 340px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  border-radius: 20px 16px 12px 32px;
+  /*Controls the style of the spine of the book and is partially transparent so cover is shown*/
+  background-image: linear-gradient(
+    to right,
+    #54101d 48px,
+    #47596f 50px,
+    transparent 50px
+  );
+  box-shadow: 2px 6px 5px 0px #370a12;
+}
+.card:after {
+  /*Creating the bottom of the book to look like pages*/
+  height: 39px;
+  width: 211px;
+  bottom: 2px;
+  right: 0px;
+  background: #d5c5ae;
+  border-radius: 32px 4px 4px 32px;
+  /*shaping the pages at the bottom of the book*/
+  box-shadow: inset 4px 6px 0px 0px #39485b;
+  /* This code creates the lines at the bottom of the book*/
+  background-image: linear-gradient(
+    to bottom,
+    transparent 6px,
+    #e4e0ce 8px,
+    transparent 8px,
+    transparent 12px,
+    #e4e0ce 12px,
+    transparent 14px,
+    transparent 18px,
+    #e4e0ce 18px,
+    transparent 20px,
+    transparent 24px,
+    #e4e0ce 24px,
+    transparent 26px,
+    transparent 30px,
+    #e4e0ce 30px,
+    transparent 32px,
+    transparent 36px,
+    #e4e0ce 36px,
+    transparent 38px,
+    transparent 42px,
+    #e4e0ce 42px,
+    transparent 44px,
+    transparent 48px,
+    #e4e0ce 48px,
+    transparent 50px
+  );
+}
