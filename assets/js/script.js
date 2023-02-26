@@ -20,12 +20,10 @@ $(document).ready(function () {
       .then(function (data) {
         var searchArr = data.items;
         for (var i = 0; i < searchArr.length; i++) {
-          console.log(data.items);
-          var titleResults = searchArr[i].volumeInfo.title;
+
 
           console.log("volumeinfo.title" + titleResults);
 
-          $("#title-" + i).text(titleResults);
 
           var authorResults = searchArr[i].volumeInfo.authors;
           console.log(authorResults);
@@ -41,25 +39,3 @@ $(document).ready(function () {
 
   function createButton() {} //This function will dynamically create a button upon a user searching.  We can apply a class to this button so that they are all uniform in size and appearance.  Need to create an id in the dom to reference where we want all these buttons appended.
 
-  var wikiEndPoint =
-    "https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=";
-  var wikiQuery = "komodo";
-  var wikiFetchUrl = wikiEndPoint + wikiQuery;
-  fetch(wikiFetchUrl)
-    .then(function (response) {
-      console.log(response.status);
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    });
-});
-
-searchBtn.on("click", function (event) {
-  event.preventDefault();
-  var userSearchInput = userInput.val();
-  //What sort of function do we need to create in order to pass our userSearchInput into?
-
-  // getApiSearchResults(userSearchInput);
-  // console.log(userSearchInput);
-});
