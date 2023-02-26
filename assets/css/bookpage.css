@@ -20,12 +20,13 @@ header {
   margin-left: 35%;
   box-shadow: #370a12 5px 5px 0px 0px;
 }
+
 section {
   /*Putting contents into a row and spacing the contents*/
   display: flex;
   flex-direction: row;
   margin-left: 110px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 h1 {
   /*This code controls the title section on the book*/
@@ -48,7 +49,8 @@ h2 {
   content: "";
   position: absolute;
 }
-.card {
+.card,
+.wikicard {
   border: solid 2px #54101d;
   /*Color of the front of the book and the size that the are*/
   background: #47596f;
@@ -66,7 +68,8 @@ h2 {
   );
   box-shadow: 2px 6px 5px 0px #370a12;
 }
-.card:after {
+.card:after,
+.wikicard:after {
   /*Creating the bottom of the book to look like pages*/
   height: 39px;
   width: 211px;
@@ -104,10 +107,4 @@ h2 {
     #e4e0ce 48px,
     transparent 50px
   );
-}
-.wikicard{
-  
-  width: 200px;
-  background-color: #54101d;
-  color: #d5c5ae;
 }
