@@ -1,7 +1,7 @@
 
 
 
-var searchHistory = [];
+
 
 $(document).ready(function () {
 
@@ -33,9 +33,9 @@ function getGoogleBooksApiSearchResults(){
         console.log(titleResults)
         var authorResults = searchArr[i].volumeInfo.authors;
         $("#author-"+i).text(authorResults)
-    }
-    })
-}
+    };
+    });
+};
 getGoogleBooksApiSearchResults()
 
 
