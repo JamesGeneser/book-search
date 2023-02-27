@@ -3,13 +3,17 @@ var searchHistory = [];
 var search = "";
 var searchInput = "";
 
-searchHistory.push(searchInput);
+function getUserInput(event) {
+  event.preventDefault();
+  searchInput = $("#searchinput").val();
+  localStorage.setItem("userSearch", searchInput);
 
-localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+  searchHistory.push(searchInput);
 
-location.href = "bookpage.html";
+  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
-console.log(searchInput);
+  location.href = "bookpage.html";
+}
 
 function createSearchHistoryButton(search) {
   var savedSearches = $("#bookShelf");
