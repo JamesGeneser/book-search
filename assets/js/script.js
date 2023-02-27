@@ -4,7 +4,7 @@ var searchInput = "";
 var searchHistory = [];
 
 $(document).ready(function () {
-  var searchInput = "theBeatles";
+  var searchInput = "penguins";
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
   var apiURL =
     "https://www.googleapis.com/books/v1/volumes?q=" +
@@ -12,7 +12,9 @@ $(document).ready(function () {
     "&key=" +
     apiKey;
 
-  function getApiSearchResults() {
+
+//GOOGLE BOOKS API; returns data on titles that match user search//
+function getGoogleBooksApiSearchResults(){
     fetch(apiURL)
       .then(function (response) {
         return response.json();
@@ -20,18 +22,50 @@ $(document).ready(function () {
       .then(function (data) {
         var searchArr = data.items;
         for (var i = 0; i < searchArr.length; i++) {
+       
+        var titleResults = searchArr[i].volumeInfo.title;
+        $("#title-"+i).text(titleResults)
+        
+        var authorResults = searchArr[i].volumeInfo.authors;
+        $("#author-"+i).text(authorResults)
+    }
+    })
+}
+getGoogleBooksApiSearchResults()  
 
 
-          console.log("volumeinfo.title" + titleResults);
 
+//WIKIPEDIA API; returns data on the subjects that match user search//
+var wikiEndPoint = "https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search="
+var wikiFetchUrl = wikiEndPoint+searchInput
 
-          var authorResults = searchArr[i].volumeInfo.authors;
-          console.log(authorResults);
-          $("#author-" + i).text(authorResults);
-        }
-      });
-  }
-  getApiSearchResults();
+function getWikipediaApiSearchResults(){
+fetch(wikiFetchUrl)
+    .then(function(response) {
+        console.log(response.status);
+    return response.json()
+    })
+    .then(function(data) {
+        console.log(data);
+    var wikiNamesArr = data[1]
+    var wikiLinksArr = data[3]
+
+    for(var i=0; i < wikiNamesArr.length; i++ ){
+    wikiList = wikiNamesArr[i]  
+        console.log(wikiList)
+    wikiHyperlinks = wikiLinksArr[i]
+        console.log(wikiHyperlinks)
+    
+    
+    $("#wikiLinks").append("<a href="+wikiHyperlinks+">"+ wikiList +"<a>");
+    }
+    }
+    )
+}
+getWikipediaApiSearchResults()
+})
+        
+
 
   function setUserSearch() {} //function I think we will use to set the values of the users search in local storage as a JSON object.  I have the array for this already declared in global as searchHistory.  I believe we will want to pass this function an argument equal to the var we declare in the event listener at bottom of page.
 
