@@ -3,7 +3,7 @@
 
 var searchHistory = [];
 
-$(document).ready(function () {
+$(document).ready(function() {
 
 
     var searchInput = localStorage.getItem("userSearch");
@@ -16,6 +16,7 @@ $(document).ready(function () {
     "&maxResults=19"+
     "&key=" +
     apiKey;
+}
 
   //GOOGLE BOOKS API; returns data on titles that match user search//
   function getGoogleBooksApiSearchResults() {
@@ -33,15 +34,8 @@ $(document).ready(function () {
         var authorResults = searchArr[i].volumeInfo.authors;
         $("#author-"+i).text(authorResults)
     }
-    })
-}
-getGoogleBooksApiSearchResults()
-
-          var authorResults = searchArr[i].volumeInfo.authors;
-          $("#author-" + i).text(authorResults);
-        }
-      });
-  }
+  })
+  
   getGoogleBooksApiSearchResults();
 
   //WIKIPEDIA API; returns data on the subjects that match user search//
@@ -74,22 +68,14 @@ getGoogleBooksApiSearchResults()
 getWikipediaApiSearchResults()
 
 
-})
-        
+function backToSearch(){
 
-          $("#wikiLinks").append(
-            "<a href=" + wikiHyperlinks + ">" + wikiList + "<a>"
-          );
-        }
-      });
-  }
-  getWikipediaApiSearchResults();
-});
-
-  
+    location.href="index.html"
+}
 
 
-  
+$("#backToSearch").on("click",backToSearch)
+ 
   
   //function I think we will use to set the values of the users search in local storage as a JSON object.  I have the array for this already declared in global as searchHistory.  I believe we will want to pass this function an argument equal to the var we declare in the event listener at bottom of page.
 
