@@ -1,5 +1,3 @@
-var searchHistory = [];
-
 $(document).ready(function () {
   // searchInput = $("#searchinput").val();
   // console.log(searchInput);
