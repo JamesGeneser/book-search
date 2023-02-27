@@ -3,6 +3,7 @@ $(document).ready(function () {
     var searchInput = localStorage.getItem("userSearch");
   } else {
     searchInput = localStorage.getItem("selectedSearch");
+    localStorage.removeItem("selectedSearch");
   }
 
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
@@ -12,8 +13,6 @@ $(document).ready(function () {
     "&maxResults=19" +
     "&key=" +
     apiKey;
-
-  // //GOOGLE BOOKS API; returns data on titles that match user search//
 
   //GOOGLE BOOKS API; returns data on titles that match user search//
   function getGoogleBooksApiSearchResults() {

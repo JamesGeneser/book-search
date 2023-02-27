@@ -5,7 +5,7 @@ var searchInput = "";
 
 function getUserInput(event) {
   event.preventDefault();
-  searchInput = $("#searchinput").val();
+  searchInput = $("#searchinput").val().trim();
   localStorage.setItem("userSearch", searchInput);
 
   searchHistory.push(searchInput);
