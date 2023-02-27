@@ -100,6 +100,12 @@ $(document).ready(function () {
   //     setTimeout(location.href = "bookpage.html",)
 });
 
+function backToSearch() {
+  location.href = "index.html";
+}
+
+$("#backToSearch").on("click", backToSearch);
+
 //function I think we will use to set the values of the users search in local storage as a JSON object.  I have the array for this already declared in global as searchHistory.  I believe we will want to pass this function an argument equal to the var we declare in the event listener at bottom of page.
 
 function renderUserSearch() {} //function I think we will use to retrieve user inputs from local storage parsed back into js.  This will not be passed an argument BUT it will call our createButton function.
