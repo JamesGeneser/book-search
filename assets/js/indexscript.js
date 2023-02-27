@@ -6,10 +6,12 @@ var searchInput = "";
 function getUserInput(event) {
   event.preventDefault();
   searchInput = $("#searchinput").val().trim();
+
   if (!searchInput) {
     M.toast({ html: "Please enter a valid Title" });
     return;
   }
+
   localStorage.setItem("userSearch", searchInput);
 
   searchHistory.push(searchInput);
@@ -23,7 +25,9 @@ function createSearchHistoryButton(search) {
   var savedSearches = $("#bookShelf");
 
   savedSearches.append(
-    "<button class='searchHistoryBtn'>" + search + "</button>"
+    "<button class='searchHistoryBtn waves-effect waves-light btn-small'>" + //don't forget to unedit if this doesnt work.
+      search +
+      "</button>"
   );
 }
 
