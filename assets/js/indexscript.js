@@ -3,10 +3,10 @@ var searchHistory = [];
 var search = "";
 var searchInput = "";
 
-    function getUserInput(event){
-        event.preventDefault()
-        searchInput = $("#searchinput").val().trim()
-        localStorage.setItem("userSearch",searchInput)
+function getUserInput(event) {
+  event.preventDefault();
+  searchInput = $("#searchinput").val().trim();
+  localStorage.setItem("userSearch", searchInput);
 
   searchHistory.push(searchInput);
 
@@ -19,7 +19,9 @@ function createSearchHistoryButton(search) {
   var savedSearches = $("#bookShelf");
 
   savedSearches.append(
-    "<button class='searchHistoryBtn'>" + search + "</button>"
+    "<button class='searchHistoryBtn waves-effect waves-light btn-small'>" + //don't forget to unedit if this doesnt work.
+      search +
+      "</button>"
   );
 }
 
