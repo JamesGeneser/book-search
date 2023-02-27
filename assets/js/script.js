@@ -1,6 +1,4 @@
 
-
-
 var searchHistory = [];
 
 $(document).ready(function() {
