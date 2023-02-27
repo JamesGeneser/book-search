@@ -130,4 +130,5 @@ a {
 }
 a:hover {
   transform: scale(1.1);
+  color: rgb(177, 169, 169);
 }
