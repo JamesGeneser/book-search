@@ -28,7 +28,7 @@ section {
   margin-left: 110px;
   justify-content: space-around;
 }
-h1 {
+h1,h2,h3 {
   /*This code controls the title section on the book*/
   background: #d5c5ae;
   width: 120px;
@@ -107,4 +107,19 @@ h2 {
     #e4e0ce 48px,
     transparent 50px
   );
+}
+
+#wikiLinks{
+  display: flex;
+  flex-direction: column;
+
+}
+
+a{
+  text-decoration: none;
+  color:rgb(255, 255, 255);
+
+}
+a:hover{
+  transform:scale(1.1) ;
 }
