@@ -1,23 +1,19 @@
 var userInput = $("#textarea1");
 var searchBtn = $("#searchbutton");
-var searchInput = "";
+var searchInput = "baseball";
 var searchHistory = [];
 
 $(document).ready(function () {
 
 
-    function setUserSearch(event) {
-        event.preventDefault()
     
         
-       
-        searchInput = $("#searchinput").val()
-        console.log(searchInput)
         
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
   var apiURL =
     "https://www.googleapis.com/books/v1/volumes?q=" +
     searchInput +
+    "&maxResults=19"+
     "&key=" +
     apiKey;
 
@@ -31,10 +27,10 @@ function getGoogleBooksApiSearchResults(){
       .then(function (data) {
         var searchArr = data.items;
         for (var i = 0; i < searchArr.length; i++) {
-       
+       console.log(data)
         var titleResults = searchArr[i].volumeInfo.title;
         $("#title-"+i).text(titleResults)
-        
+        console.log(titleResults)
         var authorResults = searchArr[i].volumeInfo.authors;
         $("#author-"+i).text(authorResults)
     }
@@ -67,20 +63,12 @@ fetch(wikiFetchUrl)
 
     
     $("#wikiLinks").append("<a href="+wikiHyperlinks+">"+ wikiList +"<a>");
-    }
-    }
+    }}
     )
 }
 getWikipediaApiSearchResults()
 
 
-function resultsPageLoad(){
-    setTimeout(location.href = "bookpage.html",)
-    
-}
-resultsPageLoad()
-}
-searchBtn.click(setUserSearch)
 })
         
 
