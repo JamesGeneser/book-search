@@ -6,6 +6,12 @@ var searchInput = "";
 function getUserInput(event) {
   event.preventDefault();
   searchInput = $("#searchinput").val().trim();
+
+  if (!searchInput) {
+    M.toast({ html: "Please enter a valid Title" });
+    return;
+  }
+
   localStorage.setItem("userSearch", searchInput);
 
   searchHistory.push(searchInput);
