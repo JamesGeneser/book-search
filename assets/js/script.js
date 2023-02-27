@@ -4,7 +4,16 @@ var searchInput = "";
 var searchHistory = [];
 
 $(document).ready(function () {
-  var searchInput = "penguins";
+
+
+    function setUserSearch(event) {
+        event.preventDefault()
+    
+        
+       
+        searchInput = $("#searchinput").val()
+        console.log(searchInput)
+        
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
   var apiURL =
     "https://www.googleapis.com/books/v1/volumes?q=" +
@@ -31,7 +40,7 @@ function getGoogleBooksApiSearchResults(){
     }
     })
 }
-getGoogleBooksApiSearchResults()  
+getGoogleBooksApiSearchResults()
 
 
 
@@ -55,7 +64,7 @@ fetch(wikiFetchUrl)
         console.log(wikiList)
     wikiHyperlinks = wikiLinksArr[i]
         console.log(wikiHyperlinks)
-    
+
     
     $("#wikiLinks").append("<a href="+wikiHyperlinks+">"+ wikiList +"<a>");
     }
@@ -63,11 +72,27 @@ fetch(wikiFetchUrl)
     )
 }
 getWikipediaApiSearchResults()
+
+
+function resultsPageLoad(){
+    setTimeout(location.href = "bookpage.html",)
+    
+}
+resultsPageLoad()
+}
+searchBtn.click(setUserSearch)
 })
         
 
 
-  function setUserSearch() {} //function I think we will use to set the values of the users search in local storage as a JSON object.  I have the array for this already declared in global as searchHistory.  I believe we will want to pass this function an argument equal to the var we declare in the event listener at bottom of page.
+  
+
+
+  
+  
+  //function I think we will use to set the values of the users search in local storage as a JSON object.  I have the array for this already declared in global as searchHistory.  I believe we will want to pass this function an argument equal to the var we declare in the event listener at bottom of page.
+
+
 
   function renderUserSearch() {} //function I think we will use to retrieve user inputs from local storage parsed back into js.  This will not be passed an argument BUT it will call our createButton function.
 
