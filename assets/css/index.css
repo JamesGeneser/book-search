@@ -40,6 +40,14 @@ footer {
   color: white;
 }
 
+.searchHistoryBtn {
+  background: #d5c5ae;
+}
+
+.searchHistoryBtn:hover {
+  background: #e7e3dc;
+}
+
 #toast-container {
   top: auto !important;
   right: auto !important;
