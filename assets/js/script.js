@@ -1,16 +1,9 @@
-
-
-
-
-
 $(document).ready(function () {
-  // function setUserSearch(event) {
-  // event.preventDefault();
-
-  // searchInput = $("#searchinput").val();
-  // console.log(searchInput);
-
-  var searchInput = localStorage.getItem("userSearch");
+  if (localStorage.getItem("selectedSearch") === null) {
+    var searchInput = localStorage.getItem("userSearch");
+  } else {
+    searchInput = localStorage.getItem("selectedSearch");
+  }
 
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
   var apiURL =
@@ -19,6 +12,8 @@ $(document).ready(function () {
     "&maxResults=19" +
     "&key=" +
     apiKey;
+
+  // //GOOGLE BOOKS API; returns data on titles that match user search//
 
   //GOOGLE BOOKS API; returns data on titles that match user search//
   function getGoogleBooksApiSearchResults() {
@@ -29,16 +24,16 @@ $(document).ready(function () {
       .then(function (data) {
         var searchArr = data.items;
         for (var i = 0; i < searchArr.length; i++) {
-       console.log(data)
-        var titleResults = searchArr[i].volumeInfo.title;
-        $("#title-"+i).text(titleResults)
-        console.log(titleResults)
-        var authorResults = searchArr[i].volumeInfo.authors;
-        $("#author-"+i).text(authorResults)
-    };
-    });
-};
-getGoogleBooksApiSearchResults()
+          console.log(data);
+          var titleResults = searchArr[i].volumeInfo.title;
+          $("#title-" + i).text(titleResults);
+          console.log(titleResults);
+          var authorResults = searchArr[i].volumeInfo.authors;
+          $("#author-" + i).text(authorResults);
+        }
+      });
+  }
+  getGoogleBooksApiSearchResults();
 
   //WIKIPEDIA API; returns data on the subjects that match user search//
   var wikiEndPoint =
@@ -69,9 +64,6 @@ getGoogleBooksApiSearchResults()
       });
   }
   getWikipediaApiSearchResults();
-
-  // function resultsPageLoad(){
-  //     setTimeout(location.href = "bookpage.html",)
 });
 
 function backToSearch() {

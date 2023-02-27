@@ -1,25 +1,22 @@
 var searchBtn = $("#searchbutton");
 var searchHistory = [];
 var search = "";
+var searchInput = "";
 
-function getUserInput(event) {
-  event.preventDefault();
-  searchInput = $("#searchinput").val();
-  localStorage.setItem("userSearch", searchInput);
+searchHistory.push(searchInput);
 
-  searchHistory.push(searchInput);
+localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
-  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+location.href = "bookpage.html";
 
-  location.href = "bookpage.html";
-
-  console.log(searchInput);
-}
+console.log(searchInput);
 
 function createSearchHistoryButton(search) {
   var savedSearches = $("#bookShelf");
 
-  savedSearches.append("<button>" + search + "</button>");
+  savedSearches.append(
+    "<button class='searchHistoryBtn'>" + search + "</button>"
+  );
 }
 
 function renderUserSearch() {
@@ -34,10 +31,15 @@ function renderUserSearch() {
   }
 }
 
-//   } else if ((userSearchHistory = "")) {
-//     var errorMessage = "No search criteria provided.  Please try again.";
-//     $("searchinput").append(errorMessage);
-//     return errorMessage;
+function searchSavedHistory(event) {
+  var selectedSearch = $(event.target).text();
+  console.log(selectedSearch);
+  localStorage.setItem("selectedSearch", selectedSearch);
+  location.href = "bookpage.html";
+}
+
 //createSearchHistoryButton()
 renderUserSearch();
 searchBtn.click(getUserInput);
+//when user clicks saved history buttons, searchSavedHistory populates the search input value
+$(".searchHistoryBtn").click(searchSavedHistory);
