@@ -1,58 +1,56 @@
 var searchBtn = $("#searchbutton");
-var searchHistory = []
-var search = ""
-var searchInput = ""
+var searchHistory = [];
+var search = "";
+var searchInput = "";
 
+<<<<<<< HEAD
     function getUserInput(event){
         event.preventDefault()
         searchInput = $("#searchinput").val().trim()
         localStorage.setItem("userSearch",searchInput)
+=======
+function getUserInput(event) {
+  event.preventDefault();
+  searchInput = $("#searchinput").val();
+  localStorage.setItem("userSearch", searchInput);
+>>>>>>> main
 
+  searchHistory.push(searchInput);
 
-        searchHistory.push(searchInput)
+  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
-        localStorage.setItem("searchHistory", JSON.stringify(searchHistory))
-    
-        location.href = "bookpage.html"
+  location.href = "bookpage.html";
+}
 
-        
-        
-        
+function createSearchHistoryButton(search) {
+  var savedSearches = $("#bookShelf");
+
+  savedSearches.append(
+    "<button class='searchHistoryBtn'>" + search + "</button>"
+  );
+}
+
+function renderUserSearch() {
+  var userSearchHistory = localStorage.getItem("searchHistory");
+  if (userSearchHistory) {
+    searchHistory = JSON.parse(userSearchHistory);
+    for (var i = 0; i < searchHistory.length; i++) {
+      search = searchHistory[i];
+      console.log(search);
+      createSearchHistoryButton(search);
     }
+  }
+}
 
-    function createSearchHistoryButton(search){
-    
-        var savedSearches = $("#bookShelf")
+function searchSavedHistory(event) {
+  var selectedSearch = $(event.target).text();
+  console.log(selectedSearch);
+  localStorage.setItem("selectedSearch", selectedSearch);
+  location.href = "bookpage.html";
+}
 
-    
-    savedSearches.append("<button class='searchHistoryBtn'>"+search+"</button>")
-        }
-    
-    
-
-    function renderUserSearch(){
-       
-        var userSearchHistory = (localStorage.getItem("searchHistory"))
-        if (userSearchHistory){
-            searchHistory= JSON.parse(userSearchHistory)
-            for(var i = 0; i<searchHistory.length; i++){
-                search = searchHistory[i]
-                console.log(search)
-                createSearchHistoryButton(search)
-        }}
-    }
-
-    function searchSavedHistory(event){
-        var selectedSearch = $(event.target).text()
-        console.log(selectedSearch)
-        localStorage.setItem("selectedSearch",selectedSearch)
-        location.href = "bookpage.html"
-    }
-
-
-
-//createSearchHistoryButton() 
-renderUserSearch()
-searchBtn.click(getUserInput)
+//createSearchHistoryButton()
+renderUserSearch();
+searchBtn.click(getUserInput);
 //when user clicks saved history buttons, searchSavedHistory populates the search input value
-$(".searchHistoryBtn").click(searchSavedHistory)
+$(".searchHistoryBtn").click(searchSavedHistory);
