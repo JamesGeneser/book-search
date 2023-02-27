@@ -15,7 +15,7 @@ var searchInput = ""
     
         location.href = "bookpage.html"
 
-        console.log(searchInput)
+        
         
         
     }
@@ -45,8 +45,8 @@ var searchInput = ""
     function searchSavedHistory(event){
         var selectedSearch = $(event.target).text()
         console.log(selectedSearch)
-        selectedSearch =  searchInput
-        getUserInput()
+        localStorage.setItem("selectedSearch",selectedSearch)
+        location.href = "bookpage.html"
     }
 
 

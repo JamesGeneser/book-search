@@ -9,8 +9,11 @@ $(document).ready(function () {
 
   // searchInput = $("#searchinput").val();
   // console.log(searchInput);
+     if (localStorage.getItem("selectedSearch")===null){
+
 
   var searchInput = localStorage.getItem("userSearch");
+     }else{searchInput= localStorage.getItem("selectedSearch")}
 
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
   var apiURL =
