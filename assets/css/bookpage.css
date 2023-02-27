@@ -108,3 +108,7 @@ h2 {
     transparent 50px
   );
 }
+
+#backToSearch {
+  background-color: #5e4016;
+}

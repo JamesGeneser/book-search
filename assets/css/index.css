@@ -39,3 +39,11 @@ footer {
   background: #47596f;
   color: white;
 }
+
+.searchHistoryBtn {
+  background: #d5c5ae;
+}
+
+.searchHistoryBtn:hover {
+  background: #e7e3dc;
+}
