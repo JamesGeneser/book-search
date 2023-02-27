@@ -1,12 +1,12 @@
-var userInput = $("#textarea1");
-var searchBtn = $("#searchbutton");
-var searchInput = "baseball";
+
+
+
 var searchHistory = [];
 
 $(document).ready(function () {
 
 
-    
+    var searchInput = localStorage.getItem("userSearch");
         
         
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
