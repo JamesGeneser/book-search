@@ -4,11 +4,7 @@
 
 
 $(document).ready(function () {
-  // function setUserSearch(event) {
-  // event.preventDefault();
 
-  // searchInput = $("#searchinput").val();
-  // console.log(searchInput);
      if (localStorage.getItem("selectedSearch")===null){
 
 
@@ -24,16 +20,6 @@ $(document).ready(function () {
     apiKey;
 
   // //GOOGLE BOOKS API; returns data on titles that match user search//
-  // function getGoogleBooksApiSearchResults() {
-  //   fetch(apiURL)
-  //     .then(function (response) {
-  //       return response.json();
-  //     })
-  //     .then(function (data) {
-  //       var searchArr = data.items;
-  //       for (var i = 0; i < searchArr.length; i++) {
-  //         var titleResults = searchArr[i].volumeInfo.title;
-  //         $("#title-" + i).text(titleResults);
 
   //GOOGLE BOOKS API; returns data on titles that match user search//
   function getGoogleBooksApiSearchResults() {
@@ -60,22 +46,6 @@ getGoogleBooksApiSearchResults()
     "https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=";
   var wikiFetchUrl = wikiEndPoint + searchInput;
 
-  // function getWikipediaApiSearchResults() {
-  //   fetch(wikiFetchUrl)
-  //     .then(function (response) {
-  //       console.log(response.status);
-  //       return response.json();
-  //     })
-  //     .then(function (data) {
-  //       console.log(data);
-  //       var wikiNamesArr = data[1];
-  //       var wikiLinksArr = data[3];
-
-  //       for (var i = 0; i < wikiNamesArr.length; i++) {
-  //         wikiList = wikiNamesArr[i];
-  //         console.log(wikiList);
-  //         wikiHyperlinks = wikiLinksArr[i];
-  //         console.log(wikiHyperlinks);
 
   function getWikipediaApiSearchResults() {
     fetch(wikiFetchUrl)
@@ -102,8 +72,7 @@ getGoogleBooksApiSearchResults()
   }
   getWikipediaApiSearchResults();
 
-  // function resultsPageLoad(){
-  //     setTimeout(location.href = "bookpage.html",)
+
 });
 
 function backToSearch() {

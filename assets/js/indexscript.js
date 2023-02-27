@@ -35,7 +35,7 @@ var searchInput = ""
         var userSearchHistory = (localStorage.getItem("searchHistory"))
         if (userSearchHistory){
             searchHistory= JSON.parse(userSearchHistory)
-            for(var i = 0; i<6; i++){
+            for(var i = 0; i<searchHistory.length; i++){
                 search = searchHistory[i]
                 console.log(search)
                 createSearchHistoryButton(search)
