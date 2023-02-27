@@ -109,8 +109,17 @@ h2 {
   );
 }
 
+#wikiLinks{
+  display: flex;
+  flex-direction: column;
+
+}
+
 a{
   text-decoration: none;
   color:rgb(255, 255, 255);
 
+}
+a:hover{
+  transform:scale(1.1) ;
 }

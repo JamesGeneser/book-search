@@ -3,17 +3,10 @@ var searchHistory = [];
 var search = "";
 var searchInput = "";
 
-<<<<<<< HEAD
     function getUserInput(event){
         event.preventDefault()
         searchInput = $("#searchinput").val().trim()
         localStorage.setItem("userSearch",searchInput)
-=======
-function getUserInput(event) {
-  event.preventDefault();
-  searchInput = $("#searchinput").val();
-  localStorage.setItem("userSearch", searchInput);
->>>>>>> main
 
   searchHistory.push(searchInput);
 

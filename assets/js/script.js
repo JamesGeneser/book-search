@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 $(document).ready(function () {
 
@@ -17,14 +16,6 @@ $(document).ready(function () {
 
 
 
-=======
-$(document).ready(function () {
-  if (localStorage.getItem("selectedSearch") === null) {
-    var searchInput = localStorage.getItem("userSearch");
-  } else {
-    searchInput = localStorage.getItem("selectedSearch");
-  }
->>>>>>> main
 
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
   var apiURL =
