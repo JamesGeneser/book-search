@@ -69,9 +69,18 @@ fetch(wikiFetchUrl)
 getWikipediaApiSearchResults()
 
 
+function backToSearch(){
+
+    location.href="index.html"
+}
+
+
+$("#backToSearch").on("click",backToSearch)
+
+
+
 })
         
-
 
   
 
