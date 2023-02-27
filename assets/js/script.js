@@ -1,9 +1,21 @@
+
 $(document).ready(function () {
-  if (localStorage.getItem("selectedSearch") === null) {
-    var searchInput = localStorage.getItem("userSearch");
-  } else {
-    searchInput = localStorage.getItem("selectedSearch");
-  }
+
+
+
+
+     if (localStorage.getItem("selectedSearch")===null){
+
+
+  var searchInput = localStorage.getItem("userSearch");
+  
+  
+     }else{searchInput= localStorage.getItem("selectedSearch")
+     localStorage.removeItem("selectedSearch");}
+
+
+
+
 
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
   var apiURL =
@@ -13,7 +25,7 @@ $(document).ready(function () {
     "&key=" +
     apiKey;
 
-  // //GOOGLE BOOKS API; returns data on titles that match user search//
+
 
   //GOOGLE BOOKS API; returns data on titles that match user search//
   function getGoogleBooksApiSearchResults() {
