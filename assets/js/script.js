@@ -30,7 +30,7 @@ $(document).ready(function () {
           $("#author-" + i).text(authorResults);
         }
       });
-  }
+  }})
   getApiSearchResults();
 
   function setUserSearch() {} //function I think we will use to set the values of the users search in local storage as a JSON object.  I have the array for this already declared in global as searchHistory.  I believe we will want to pass this function an argument equal to the var we declare in the event listener at bottom of page.
