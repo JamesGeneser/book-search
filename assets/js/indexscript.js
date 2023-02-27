@@ -1,7 +1,7 @@
 var searchBtn = $("#searchbutton");
 var searchHistory = []
 var search = ""
-
+var searchInput = ""
 
     function getUserInput(event){
         event.preventDefault()
@@ -16,9 +16,6 @@ var search = ""
         location.href = "bookpage.html"
 
         console.log(searchInput)
-
-
-
         
         
     }
@@ -28,10 +25,10 @@ var search = ""
         var savedSearches = $("#bookShelf")
 
     
-    savedSearches.append("<button>"+search+"</button>")
+    savedSearches.append("<button class='searchHistoryBtn'>"+search+"</button>")
         }
     
-   
+    
 
     function renderUserSearch(){
        
@@ -45,9 +42,17 @@ var search = ""
         }}
     }
 
+    function searchSavedHistory(event){
+        var selectedSearch = $(event.target).text()
+        console.log(selectedSearch)
+        selectedSearch =  searchInput
+        getUserInput()
+    }
 
 
 
 //createSearchHistoryButton() 
 renderUserSearch()
 searchBtn.click(getUserInput)
+//when user clicks saved history buttons, searchSavedHistory populates the search input value
+$(".searchHistoryBtn").click(searchSavedHistory)
