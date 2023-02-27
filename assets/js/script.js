@@ -25,7 +25,9 @@ $(document).ready(function () {
     "&key=" +
     apiKey;
 
-
+function sendUserToGoogleBooks(event){
+event.target
+}
 
   //GOOGLE BOOKS API; returns data on titles that match user search//
   function getGoogleBooksApiSearchResults() {
@@ -42,6 +44,10 @@ $(document).ready(function () {
           console.log(titleResults);
           var authorResults = searchArr[i].volumeInfo.authors;
           $("#author-" + i).text(authorResults);
+            var googleBookAddress = searchArr[i].volumeInfo.canonicalVolumeLink
+            console.log(googleBookAddress)
+            $(".card").append("<a href="+googleBookAddress+"</a>")
+          $(".card").click(sendUserToGoogleBooks)
         }
       });
   }
