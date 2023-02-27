@@ -1,8 +1,9 @@
 $(document).ready(function () {
-  // searchInput = $("#searchinput").val();
-  // console.log(searchInput);
-
-  var searchInput = localStorage.getItem("userSearch");
+  if (localStorage.getItem("selectedSearch") === null) {
+    var searchInput = localStorage.getItem("userSearch");
+  } else {
+    searchInput = localStorage.getItem("selectedSearch");
+  }
 
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
   var apiURL =
@@ -11,6 +12,8 @@ $(document).ready(function () {
     "&maxResults=19" +
     "&key=" +
     apiKey;
+
+  // //GOOGLE BOOKS API; returns data on titles that match user search//
 
   //GOOGLE BOOKS API; returns data on titles that match user search//
   function getGoogleBooksApiSearchResults() {
@@ -61,9 +64,6 @@ $(document).ready(function () {
       });
   }
   getWikipediaApiSearchResults();
-
-  // function resultsPageLoad(){
-  //     setTimeout(location.href = "bookpage.html",)
 });
 
 function backToSearch() {
