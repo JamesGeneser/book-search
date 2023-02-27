@@ -1,15 +1,9 @@
-
-
-
-
-
 $(document).ready(function () {
-
-     if (localStorage.getItem("selectedSearch")===null){
-
-
-  var searchInput = localStorage.getItem("userSearch");
-     }else{searchInput= localStorage.getItem("selectedSearch")}
+  if (localStorage.getItem("selectedSearch") === null) {
+    var searchInput = localStorage.getItem("userSearch");
+  } else {
+    searchInput = localStorage.getItem("selectedSearch");
+  }
 
   var apiKey = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
   var apiURL =
@@ -30,22 +24,21 @@ $(document).ready(function () {
       .then(function (data) {
         var searchArr = data.items;
         for (var i = 0; i < searchArr.length; i++) {
-       console.log(data)
-        var titleResults = searchArr[i].volumeInfo.title;
-        $("#title-"+i).text(titleResults)
-        console.log(titleResults)
-        var authorResults = searchArr[i].volumeInfo.authors;
-        $("#author-"+i).text(authorResults)
-    };
-    });
-};
-getGoogleBooksApiSearchResults()
+          console.log(data);
+          var titleResults = searchArr[i].volumeInfo.title;
+          $("#title-" + i).text(titleResults);
+          console.log(titleResults);
+          var authorResults = searchArr[i].volumeInfo.authors;
+          $("#author-" + i).text(authorResults);
+        }
+      });
+  }
+  getGoogleBooksApiSearchResults();
 
   //WIKIPEDIA API; returns data on the subjects that match user search//
   var wikiEndPoint =
     "https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=";
   var wikiFetchUrl = wikiEndPoint + searchInput;
-
 
   function getWikipediaApiSearchResults() {
     fetch(wikiFetchUrl)
@@ -71,8 +64,6 @@ getGoogleBooksApiSearchResults()
       });
   }
   getWikipediaApiSearchResults();
-
-
 });
 
 function backToSearch() {
