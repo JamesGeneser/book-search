@@ -29,6 +29,21 @@ $(document).ready(function () {
           console.log(titleResults);
           var authorResults = searchArr[i].volumeInfo.authors;
           $("#author-" + i).text(authorResults);
+          var googleBookAddress = searchArr[i].volumeInfo.canonicalVolumeLink;
+          console.log(googleBookAddress);
+          $("#googleLink-" + i).empty();
+          $("#googleLink-" + i).append(
+            "<a target='_blank' href=" +
+              googleBookAddress +
+              ">go to Google Books</a>"
+          );
+
+          //LINK TO GOOGLE BOOKS
+          // function goToGoogleBooks(event){
+          //     var bookUrl= event.target
+          //     console.log(bookUrl)
+          // // location.href=googleBookAddress
+          // }
         }
       });
   }
@@ -57,7 +72,7 @@ $(document).ready(function () {
           console.log(wikiHyperlinks);
 
           $("#wikiLinks").append(
-            "<a href=" + wikiHyperlinks + ">" + wikiList + "<a>"
+            "<a target='_blank' href=" + wikiHyperlinks + ">" + wikiList + "<a>"
           );
         }
       });
